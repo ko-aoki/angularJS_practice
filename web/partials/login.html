@@ -1,0 +1,12 @@
+<h1>ログイン</h1>
+<ul>
+   <li ng-repeat="message in messages">
+          <p>{{message}}</p>
+   </li>
+</ul>
+<br>
+<span>ユーザID　：</span><input type="text" ng-model="loginUserId"/>
+<br>
+<span>パスワード：</span><input type="text" ng-model="password"/>
+<br>
+<button class="btn" ng-click="login()">ログイン</button>

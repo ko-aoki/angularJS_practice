@@ -1,0 +1,106 @@
+<link href="css/common-app.css" rel="stylesheet"  type="text/css" />
+<link href="css/mntMUser.css" rel="stylesheet"  type="text/css" />
+<h1 style="font-size:16px;">ユーザマスタメンテ</h1>
+<div id="app">
+    <div id="message">
+        <ul>
+            <li ng-repeat="message in messages">
+                <p>{{message}}</p>
+            </li>
+        </ul>
+    </div>
+    <div id="header">
+        <div id="condition" class="content-wrap">
+            <div id="finderDiv">
+                <table border="1">
+                    <tr>
+                        <th>ユーザ名
+                        </th>
+                        <td>
+                            <input type="text" ng-model="userNm"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>組織1
+                        </th>
+                        <td>
+                            <input type="text" ng-model="deptId1"/>
+                            <input type="button" id="dept1Finder" value="部門検索"/>
+                            <span id="lblDeptNm1">{{$scope.deptNm1}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>組織2
+                        </th>
+                        <td>
+                            <input type="text" ng-model="deptId2"  size="20" />
+                            <span id="lblDeptNm2">{{$scope.deptNm2}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>ロール
+                        </th>
+                        <td>
+                            <select ng-model="roleId">
+                                <option></option>
+                                <option value=""></option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <button type="button" ng-click="find()" id="find">検索</button>
+                <button type="button"ng-click="register()"  name="register">新規登録</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="headerDiv">
+        <table id="headerTable" border="1" style="margin-top:20px;">
+            <thead>
+                <tr>
+                    <th class="recUserId">ユーザID</th>
+                    <th class="recUserNm">ユーザ名</th>
+                    <th class="recOrg1">組織1</th>
+                    <th class="recOrg2">組織2</th>
+                    <th class="recRole">ロール</th>
+                    <th class="recStartDate">開始日付</th>
+                    <th class="recEndDate">終了日付</th>
+                    <th class="recCmd"></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div  id="recordsDiv">
+        <table id="recordsTable" border="1" >
+            <tbody >
+                <tr ng-repeat="rec in recs">
+                    <td class="recUserId">
+                        <span>{{rec.userId}}</span>
+                    </td>
+                    <td class="recUserNmM">
+                        <span>{{rec.usernmSei}}{{rec.usernmMei}}</span>
+                    </td>
+                    <td class="recOrg1">
+                        <span>{{rec.mstDeptId.PDeptNm}}</span>
+                    </td>
+                    <td class="recOrg2">
+                        <span>{{rec.mstDeptId.deptNm}}</span>
+                    </td>
+                    <td class="recRole">
+                        <span>{{rec.roleId.roleNm}}</span>
+                    </td>
+                    <td class="recStartDate">
+                        <span>{{rec.startDate}}</span>
+                    </td>
+                    <td class="recEndDate">
+                        <span>{{rec.endDate}}</span>
+                    </td>
+                    <td class="recCmd">
+                        <button class="modify" id="modify_${s.index}">変更</button>
+                        <button class="delete" id="delete_${s.index}">削除</button>
+                    </td>
+                </tr>			
+            </tbody>
+        </table>
+    </div>
+</div>
