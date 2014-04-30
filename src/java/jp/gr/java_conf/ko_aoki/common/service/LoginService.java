@@ -22,7 +22,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import jp.gr.java_conf.ko_aoki.common.entity.MstUser;
-import jp.gr.java_conf.ko_aoki.common.form.BaseForm;
 import jp.gr.java_conf.ko_aoki.common.form.LoginForm;
 
 /**

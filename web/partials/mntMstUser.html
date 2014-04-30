@@ -41,9 +41,15 @@
                         <th>ロール
                         </th>
                         <td>
-                            <select ng-model="roleId">
-                                <option></option>
-                                <option value=""></option>
+                            <select id="roleId"
+                                    ng-model="roleId" ng-options="role.roleId as role.roleNm for role in roles">
+<!--
+                            <select id="roleId"
+                                    ng-model="roleId">
+                                <option ng-repeat="role in roles" value="{{role.roleId}}">
+                                    {{role.roleNm}}
+                                </option>
+-->
                             </select>
                         </td>
                     </tr>
@@ -74,7 +80,7 @@
         <table id="recordsTable" border="1" >
             <tbody >
                 <tr ng-repeat="rec in recs">
-                    <td class="recUserId">
+                    <td class="recUserId" style="{{userIdColor}}">
                         <span>{{rec.userId}}</span>
                     </td>
                     <td class="recUserNmM">
@@ -96,11 +102,14 @@
                         <span>{{rec.endDate}}</span>
                     </td>
                     <td class="recCmd">
-                        <button class="modify" id="modify_${s.index}">変更</button>
-                        <button class="delete" id="delete_${s.index}">削除</button>
+                        <button class="modify"  ng-click="modify(rec)" >変更</button>
+                        <button class="delete"  ng-click="delete(rec)" >削除</button>
                     </td>
                 </tr>			
             </tbody>
         </table>
     </div>
+<script>
+    console.log("in html")
+</script>
 </div>

@@ -14,23 +14,23 @@ import jp.gr.java_conf.ko_aoki.common.entity.MstUser;
  *
  * @author admin
  */
-public class MntMstUserForm extends BaseForm{
+public class MntMstUserRegForm extends BaseForm{
 
-    private List<MstUser> recs;
+    private MstUser rec;
     private List<MstRole> roles;
 
     /**
      * @return the rec
      */
-    public List<MstUser> getRecs() {
-        return recs;
+    public MstUser getRec() {
+        return rec;
     }
 
     /**
      * @param rec the rec to set
      */
-    public void setRecs(List<MstUser> recs) {
-        this.recs = recs;
+    public void setRec(MstUser rec) {
+        this.rec = rec;
     }
 
     /**
@@ -46,5 +46,6 @@ public class MntMstUserForm extends BaseForm{
     public void setRoles(List<MstRole> roles) {
         this.roles = roles;
     }
+
 
 }

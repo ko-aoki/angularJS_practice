@@ -38,6 +38,17 @@ angular.module('myApp.controllers', [])
 
     }])
     .controller('MntMstUserCtrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
+        $scope.recs =[];
+        $scope.init = function find() {
+            var url = encodeURI('webresources/mntMstUser/');
+            $http.get(url).success(function (data) {
+                if (data.result === "error") {
+                    $scope.messages = data.messages;
+                } else {
+                    $scope.roles = data.roles;
+                }
+            });
+        };
         $scope.find = function find() {
             var url = 'webresources/mntMstUser/' +
                  ($.isEmptyObject($scope.userNm) ? '' : $scope.userNm) + ',' +
@@ -50,15 +61,32 @@ angular.module('myApp.controllers', [])
                     $scope.messages = data.messages;
                 } else {
                     $scope.recs = data.recs;
+                    $scope.roles = data.roles;
                 }
             });
         };
-        $scope.regiser = function regiser() {
-            $http.get('webresources/mntMstUserReg/' + $routeParams.mstUserId).success(function (data) {
-                window.location.href = "#/mntMstUserReg/" + data.roleId;
+        $scope.regiser = function register(rec) {
+            $http.get('webresources/mntMstUser/' + rec.mstUserId).success(function (data) {
+                window.location.href = "#/mntMstUserReg/";
             });
         };
+        $scope.modify = function modify(rec) {
+            window.location.href = "#/mntMstUserReg/" + rec.mstUserId;
+        };
+        /** test
+         var recsCallback = function (newval, oldval){
+            console.log(newval, oldval);
+//            $(".recUserId").css("color","red");
+//            alert("change");
+        };
+         $scope.$watch(
+         "recs", recsCallback, true
+         );
+         */
     }])
-    .controller('MyCtrl2', [function () {
-
+    .controller('MntMstUserRegCtrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
+        console.log("★★★★★★★★★★★★");
+        $http.get('webresources/mntMstUser/' + $routeParams.mstUserId).success(function (data) {
+            $scope.rec = data.rec;
+        });
     }]);
