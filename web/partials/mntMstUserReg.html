@@ -41,12 +41,10 @@
 			</tr>
 			<tr>
 				<td class="caption">ロール</td>
-                <select id="roleId"
-                        ng-model="filterService.activeFilters.city">
-                    <option ng-repeat="role in rec.roles">
-                        {{role.roleNm}}
-                    </option>
-                </select>
+                <td>
+                    <select id="roleId"
+                            ng-model="rec.roleId.roleId" ng-options="role.roleId as role.roleNm for role in roles">
+                    </select>
 				</td>
 			</tr>
 			<tr>

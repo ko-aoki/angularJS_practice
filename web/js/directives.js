@@ -1,4 +1,5 @@
-'use strict';
+define(['angular', 'services'], function(angular, services) {
+    'use strict';
 
 /* Directives */
 
@@ -9,3 +10,4 @@ angular.module('myApp.directives', []).
       elm.text(version);
     };
   }]);
+});
