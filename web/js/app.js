@@ -22,6 +22,7 @@ define([
         $routeProvider.when('/menu/:roleId', {templateUrl: 'partials/menu.html', controller: 'MenuCtrl'});
         $routeProvider.when('/mntMstUser', {templateUrl: 'partials/mntMstUser.html', controller: 'MntMstUserCtrl'});
         $routeProvider.when('/mntMstUserReg/:mstUserId', {templateUrl: 'partials/mntMstUserReg.html', controller: 'MntMstUserRegCtrl'});
+        $routeProvider.when('/mntMstUserRegConfirm', {templateUrl: 'partials/mntMstUserRegConfirm.html', controller: 'MntMstUserRegCtrl'});
         $routeProvider.otherwise({redirectTo: '/login'});
     }]);
 

@@ -22,6 +22,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import jp.gr.java_conf.ko_aoki.common.entity.MstRole;
@@ -169,6 +170,15 @@ public class MntMstUserService {
         em.close();
         return form;
     }
+
+    @POST
+    @Consumes("application/json")
+    @Produces("application/json")
+    public MntMstUserRegForm confirm(MntMstUserRegForm form) {
+        MntMstUserRegForm output = new MntMstUserRegForm();
+        return output;
+    }
+
     /**
      * PUT method for updating or creating an instance of MenuService
      *
