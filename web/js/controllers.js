@@ -1,7 +1,12 @@
-define(['angular', 'services'], function (angular) {
+define(['angular'], function(angular) {
+    'use strict';
+    return angular.module('controllers', []);
+});
+/*
+define(['angular', 'services'], function (angular, services) {
     'use strict';
 
-    /* Controllers */
+    // Controllers
 
     return angular.module('myApp.controllers', [])
     .controller('LoginCtrl', ['$scope', '$injector', function($scope, $injector) {
@@ -23,9 +28,15 @@ define(['angular', 'services'], function (angular) {
             $injector.invoke(mntMstUserCtrl, this, {'$scope': $scope});
         });
     }])
-    .controller('MntMstUserRegCtrl', ['$scope', '$injector', function($scope, $injector) {
+    .controller('MntMstUserRegCtrl', ['$scope', '$injector', 'dto', function($scope, $injector, dto) {
         require(['controllers/mntMstUserRegCtrl'], function(mntMstUserRegCtrl) {
-            $injector.invoke(mntMstUserRegCtrl, this, {'$scope': $scope});
+            $injector.invoke(mntMstUserRegCtrl, this, {'$scope': $scope, 'dto': dto});
+        });
+    }])
+    .controller('MntMstUserRegConfirmCtrl', ['$scope', '$injector', function($scope, $injector, dto) {
+        require(['controllers/mntMstUserRegConfirmCtrl'], function(mntMstUserRegConfirmCtrl) {
+            $injector.invoke(mntMstUserRegConfirmCtrl, this, {'$scope': $scope, 'dto': dto});
         });
     }]);
 });
+*/

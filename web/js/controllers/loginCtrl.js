@@ -1,5 +1,7 @@
-define([], function() {
-    return ['$scope', '$http', function ($scope, $http) {
+define(['controllers'],
+    function(controllers) {
+        controllers.controller('LoginCtrl', ['$scope', '$http',
+        function ($scope, $http) {
         $scope.login = function login() {
             $http.get('webresources/login/' + $scope.loginUserId + ',' + $scope.password).success(function (data) {
                 if (data.result === "error") {
@@ -9,6 +11,5 @@ define([], function() {
                 }
             });
         };
-        $scope.$apply();
-    }];
+    }]);
 });

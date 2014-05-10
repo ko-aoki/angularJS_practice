@@ -175,8 +175,8 @@ public class MntMstUserService {
     @Consumes("application/json")
     @Produces("application/json")
     public MntMstUserRegForm confirm(MntMstUserRegForm form) {
-        MntMstUserRegForm output = new MntMstUserRegForm();
-        return output;
+        form.setResult("OK");
+        return form;
     }
 
     /**

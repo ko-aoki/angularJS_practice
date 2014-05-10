@@ -5,6 +5,7 @@ require.config({
         'angular': 'vendor/angular/angular',
         'angularRoute': 'vendor/angular/angular-route',
         'angularMocks': 'vendor/angular-mocks/angular-mocks',
+        'domReady': 'vendor/requirejs/domReady',
         'text': 'vendor/requirejs-text/text'
 	},
 	shim: {
@@ -16,24 +17,43 @@ require.config({
 			deps:['angular'],
 			'exports':'angular.mock'
 		}
-	},
-	priority: [
-		"angular"
-	]
+	}
 });
 
-//http://code.angularjs.org/1.2.1/docs/guide/bootstrap#overview_deferred-bootstrap
-//https://docs.angularjs.org/guide/bootstrap
-window.name = "NG_DEFER_BOOTSTRAP!";
+require([
+        'angular',
+        'app',
+        'domReady',
+        'services/dtoSrv',
+        'controllers/loginCtrl',
+        'controllers/menuCtrl',
+        'controllers/mntMstUserCtrl',
+        'controllers/mntMstUserRegCtrl',
+        'controllers/mntMstUserRegConfirmCtrl'
+        // Any individual controller, service, directive or filter file
+        // that you add will need to be pulled in here.
+    ],
+    function (angular, app, domReady) {
+        'use strict';
+        app.config(['$routeProvider',
+            function($routeProvider) {
+                $routeProvider.when('/login', {templateUrl: 'partials/login.html', controller: 'LoginCtrl'});
+                $routeProvider.when('/menu/:roleId', {templateUrl: 'partials/menu.html', controller: 'MenuCtrl'});
+                $routeProvider.when('/mntMstUser', {templateUrl: 'partials/mntMstUser.html', controller: 'MntMstUserCtrl'});
+                $routeProvider.when('/mntMstUserReg/:mstUserId', {templateUrl: 'partials/mntMstUserReg.html',
+                    controller: 'MntMstUserRegCtrl'
+                });
+                $routeProvider.when('/mntMstUserRegConfirm', {templateUrl: 'partials/mntMstUserRegConfirm.html',
+                    controller: 'MntMstUserRegConfirmCtrl'
+                });
+                $routeProvider.otherwise({redirectTo: '/login'});
+            }
+        ]);
+        domReady(function() {
+            angular.bootstrap(document, ['MyApp']);
 
-require( [
-	'angular',
-	'app'
-], function( angular, app) {
-	'use strict';
-	var $html = angular.element(document.getElementsByTagName('html')[0]);
-
-	angular.element().ready(function() {
-		angular.resumeBootstrap([app['name']]);
-	});
-});
+            // The following is required if you want AngularJS Scenario tests to work
+            $('html').addClass('ng-app: MyApp');
+        });
+    }
+);

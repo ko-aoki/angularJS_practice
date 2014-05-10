@@ -1,10 +1,27 @@
+// The app/scripts/app.js file, which defines our AngularJS app
+define([
+    'angular',
+    'controllers',
+    'services',
+    'filters',
+    'directives',
+    'angularRoute'
+], function (angular) {
+    return angular.module('MyApp', [
+        'ngRoute',
+        'controllers',
+        'services',
+        'filters',
+        'directives']);
+});
+/*
 define([
     'angular',
     'filters',
     'services',
     'directives',
     'controllers',
-    'angularRoute',
+    'angularRoute'
 ], function (angular, filters, services, directives, controllers) {
     'use strict';
 
@@ -21,13 +38,19 @@ define([
         $routeProvider.when('/login', {templateUrl: 'partials/login.html', controller: 'LoginCtrl'});
         $routeProvider.when('/menu/:roleId', {templateUrl: 'partials/menu.html', controller: 'MenuCtrl'});
         $routeProvider.when('/mntMstUser', {templateUrl: 'partials/mntMstUser.html', controller: 'MntMstUserCtrl'});
-        $routeProvider.when('/mntMstUserReg/:mstUserId', {templateUrl: 'partials/mntMstUserReg.html', controller: 'MntMstUserRegCtrl'});
-        $routeProvider.when('/mntMstUserRegConfirm', {templateUrl: 'partials/mntMstUserRegConfirm.html', controller: 'MntMstUserRegCtrl'});
+        $routeProvider.when('/mntMstUserReg/:mstUserId', {templateUrl: 'partials/mntMstUserReg.html',
+            controller: 'MntMstUserRegCtrl',
+            resolve: 'dto'
+            });
+        $routeProvider.when('/mntMstUserRegConfirm', {templateUrl: 'partials/mntMstUserRegConfirm.html',
+            controller: 'MntMstUserRegConfirmCtrl',
+//            resolve: 'dto'
+        });
         $routeProvider.otherwise({redirectTo: '/login'});
     }]);
 
 });
-
+*/
 /*
 'use strict';
 
