@@ -11,7 +11,13 @@
 
 <div id="app">
     <div id="entryDiv">
-        <form ng-submit="confirm()">
+        <ul>
+            <li ng-repeat="message in messages">
+                <p>{{message}}</p>
+            </li>
+        </ul>
+        <form>
+            <input type="hidden" ng-model="rec.mstUserId"/>
             <table id="headerTable" border="1" style="margin-top:20px;">
                 <tr>
                     <td class="caption">ユーザID</td>
@@ -41,9 +47,8 @@
                 <tr>
                     <td class="caption">ロール</td>
                     <td>
-                        <select id="roleId"
-                                ng-model="rec.roleId.roleId" ng-options="role.roleId as role.roleNm for role in roles">
-                        </select>
+                        <input type="text"  ng-model="rec.roleId.roleId"/>
+                        <span id="lblRoleNm">{{rec.roleId.roleNm}}</span>
                     </td>
                 </tr>
                 <tr>
