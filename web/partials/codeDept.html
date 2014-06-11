@@ -1,0 +1,76 @@
+<link href="css/common-app.css" rel="stylesheet" type="text/css" xmlns="http://www.w3.org/1999/html"/>
+<h1 style="font-size:14px;">組織検索</h1>
+<div id="app">
+    <div id="header">
+        <div id="condition" class="content-wrap">
+            <div id="finderDiv">
+                <form>
+                    <table border="1">
+                        <tr>
+                            <th>組織1コード
+                            </th>
+                            <td>
+                                <input type="text" ng-model="pDeptId"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>組織1名称
+                            </th>
+                            <td>
+                                <input type="text" ng-model="pDeptNm"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>組織2コード
+                            </th>
+                            <td>
+                                <input type="text" ng-model="deptId"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>組織2名称
+                            </th>
+                            <td>
+                                <input type="text" ng-model="deptNm"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <button type="button" ng-click="find()" id="find">検索</button>
+
+                    <div csng-page></div>
+
+                </form>
+                <table border="1">
+                    <thead>
+                    <tr>
+                        <th>選択</th>
+                        <th>親部門ID</th>
+                        <th>親部門名</th>
+                        <th>部門ID</th>
+                        <th>部門名</th>
+                    </tr>
+                    </thead>
+                    <tr ng-repeat="rec in recs">
+                        <td>
+                            <input type="radio" name="deptIds" value="{{rec.deptId}}"/>
+                        </td>
+                        <td>
+                            <label for="deptIds"><span>{{rec.pDeptId}}</span></label>
+                        </td>
+                        <td>
+                            <label for="deptIds"><span>{{rec.pDeptNm}}</span></label>
+                        </td>
+                        <td>
+                            <label for="deptIds"><span>{{rec.deptId}}</span></label>
+                        </td>
+                        <td>
+                            <label for="deptIds"><span>{{rec.deptId}}</span></label>
+                        </td>
+                    </tr>
+                </table>
+                <button ng-click="ok(rec)" >OK</button>
+                <button ng-click="cancel(rec)" >Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

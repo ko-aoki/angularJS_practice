@@ -30,6 +30,7 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
+        resources.add(jp.gr.java_conf.ko_aoki.common.resource.CodeDeptResource.class);
         resources.add(jp.gr.java_conf.ko_aoki.common.resource.LoginResource.class);
         resources.add(jp.gr.java_conf.ko_aoki.common.resource.MenuResource.class);
         resources.add(jp.gr.java_conf.ko_aoki.common.resource.MntMstUserResource.class);

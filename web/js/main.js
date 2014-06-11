@@ -29,7 +29,9 @@ require([
         'controllers/menuCtrl',
         'controllers/mntMstUserCtrl',
         'controllers/mntMstUserRegCtrl',
-        'controllers/mntMstUserRegConfirmCtrl'
+        'controllers/mntMstUserRegConfirmCtrl',
+        'controllers/codeDeptCtrl',
+        'directives/csngPage'
         // Any individual controller, service, directive or filter file
         // that you add will need to be pulled in here.
     ],
@@ -45,6 +47,9 @@ require([
                 });
                 $routeProvider.when('/mntMstUserRegConfirm', {templateUrl: 'partials/mntMstUserRegConfirm.html',
                     controller: 'MntMstUserRegConfirmCtrl'
+                });
+                $routeProvider.when('/codeDept', {templateUrl: 'partials/codeDept.html',
+                    controller: 'CodeDeptCtrl'
                 });
                 $routeProvider.otherwise({redirectTo: '/login'});
             }

@@ -35,12 +35,6 @@ public class MntMstUserResource {
     public MntMstUserResource() {
     }
 
-    /**
-     * Retrieves representation of an instance of
-     * jp.gr.java_conf.ko_aoki.common.service.MenuService
-     *
-     * @return an instance of java.lang.String
-     */
     @GET
     @Path("{userNm: .*},{deptId1: .*},{deptId2: .*},{roleId: .*}")
     @Produces("application/json")
