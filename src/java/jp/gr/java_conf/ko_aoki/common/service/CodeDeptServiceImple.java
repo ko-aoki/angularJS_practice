@@ -36,15 +36,17 @@ public class CodeDeptServiceImple implements CodeDeptService{
 
         //ページ込みで明細取得
         PageBean page = new PageBean();
+        if (curPage < 1) {
+            curPage = 1;
+        }
         page.setCurPage(curPage);
         //ページ込みで明細取得
         PageBuilder pb = new PageBuilder();
         page = pb.build(curPage, 5, cnt.intValue(), 3);
-        List<CodeDeptBean> recs = mstDeptRep.selectLevel1to2DeptList(param, page.getStartNum(), page.getEndNum());
         CodeDeptForm form = new CodeDeptForm();
+        List<CodeDeptBean> recs = mstDeptRep.selectLevel1to2DeptList(param, page.getStartNum(), page.getEndNum());
         form.setRecs(recs);
         form.setPageInfo(page);
-
         form.setResult("ok");
         
         return form;

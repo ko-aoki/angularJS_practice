@@ -14,6 +14,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import jp.gr.java_conf.ko_aoki.common.entity.CodeDeptBean;
 import jp.gr.java_conf.ko_aoki.common.util.DateUtil;
+import org.apache.commons.lang.StringUtils;
 
 /**
  *
@@ -77,17 +78,17 @@ public class MstDeptRepositoryImpl implements MstDeptRepository{
         String deptNm =params.get("deptNm");
 
         nQuery.setParameter("targetDate", DateUtil.getFormatCurDateString());
-        if (pDeptId != null) {
-            nQuery.setParameter("pDeptId", pDeptId);
+        if (StringUtils.isNotEmpty(pDeptId )) {
+            nQuery.setParameter("pDeptId", pDeptId + "%");
         }
-        if (pDeptNm != null) {
-            nQuery.setParameter("pDeptNm", pDeptNm);
+        if (StringUtils.isNotEmpty(pDeptNm)) {
+            nQuery.setParameter("pDeptNm", pDeptNm + "%");
         }
-        if (deptId != null) {
-            nQuery.setParameter("deptId", deptId);
+        if (StringUtils.isNotEmpty(deptId)) {
+            nQuery.setParameter("deptId", deptId + "%");
         }
-        if (deptNm != null) {
-            nQuery.setParameter("deptNm", deptNm);
+        if (StringUtils.isNotEmpty(deptNm)) {
+            nQuery.setParameter("deptNm", deptNm + "%");
         }
     }
 
@@ -110,24 +111,24 @@ public class MstDeptRepositoryImpl implements MstDeptRepository{
 	+ " B.START_DATE <= ?targetDate AND"
 	+ " B.END_DATE >= ?targetDate";
         
-        if (pDeptId != null) {
+        if (StringUtils.isNotEmpty(pDeptId)) {
             query += 
             " AND"
-            + " A.DEPT_ID LIKE ?pDeptId?";
+            + " A.DEPT_ID LIKE ?pDeptId";
            
         }
-        if (pDeptNm != null) {
+        if (StringUtils.isNotEmpty(pDeptNm)) {
             query += 
             " AND"
             + " A.DEPT_NM LIKE ?pDeptNm";            
         }
-        if (deptId != null) {
+        if (StringUtils.isNotEmpty(deptId)) {
             query += 
             " AND"
-            + " B.DEPT_ID LIKE ?deptId}";
+            + " B.DEPT_ID LIKE ?deptId";
             
         }
-        if (deptNm != null) {
+        if (StringUtils.isNotEmpty(deptNm)) {
             query += 
             " AND"
             + " B.DEPT_NM LIKE ?deptNm";
@@ -142,16 +143,16 @@ public class MstDeptRepositoryImpl implements MstDeptRepository{
 	+ " START_DATE <= ?targetDate AND"
 	+ " END_DATE <= ?targetDate";
 
-        if (pDeptId != null) {
+        if (StringUtils.isNotEmpty(pDeptId)) {
             query += 
             " AND"
-            + " A.DEPT_ID LIKE ?pDeptId";
+            + " DEPT_ID LIKE ?pDeptId";
            
         }
-        if (pDeptNm != null) {
+        if (StringUtils.isNotEmpty(pDeptNm)) {
             query += 
             " AND"
-            + " A.DEPT_NM LIKE ?pDeptNm";            
+            + " DEPT_NM LIKE ?pDeptNm";            
         }
         
         return query;

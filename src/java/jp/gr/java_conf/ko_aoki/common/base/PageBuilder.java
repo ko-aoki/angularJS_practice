@@ -17,10 +17,13 @@ public class PageBuilder {
 	 * @return PageBean
 	 */
 	public PageBean build(int curPage, int numByPage, int totalNum, int dispPageNum) {
-		buildBaseParts(curPage, numByPage, totalNum);
-		buildDispParts(dispPageNum);
+            if (totalNum < 1) {
+                return new PageBean();
+            }
+            buildBaseParts(curPage, numByPage, totalNum);
+            buildDispParts(dispPageNum);
 
-		return this.page;
+            return this.page;
 	}
 
 	private void buildBaseParts(int curPage, int numByPage, int totalNum) {
@@ -29,16 +32,16 @@ public class PageBuilder {
 		this.page.setNumByPage(numByPage);
 		this.page.setTotalNum(totalNum);
 
-		//1未満は1
-		if (curPage < 1) {
-			curPage = 1;
-		}
-
 		int totalPage = (int) Math.ceil((double)totalNum / (double)numByPage);
 		//合計ページより現在ページが大きかったら合計ページ
 		if (curPage > totalPage) {
 			curPage = totalPage;
 		}
+		//1未満は1
+		if (curPage < 1) {
+			curPage = 1;
+		}
+
 		this.page.setCurPage(curPage);
 
 		int startNum = (curPage - 1) * numByPage + 1;
