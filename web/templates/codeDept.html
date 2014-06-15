@@ -1,9 +1,8 @@
-<link href="css/common-app.css" rel="stylesheet" type="text/css" xmlns="http://www.w3.org/1999/html"/>
-<h1 style="font-size:14px;">組織検索</h1>
-<div id="app">
-    <div id="header">
-        <div id="condition" class="content-wrap">
-            <div id="finderDiv">
+<div id="codeDept" class="hide"
+     style="z-index:5; position: absolute; width: 100%; height: 100%;  opacity: 0.7; background-color: gray">
+    <div id="finderDiv" style="position: absolute; top:20%;left: 20%;background-color: white;width:25%;">
+        <div id="header">
+            <div id="condition" class="content-wrap">
                 <form>
                     <table border="1">
                         <tr>
@@ -52,7 +51,7 @@
                     </thead>
                     <tr ng-repeat="rec in recs">
                         <td>
-                            <input type="radio" name="deptIds" value="{{rec.deptId}}"/>
+                            <button ng-click="codeDeptOk(rec)">OK</button>
                         </td>
                         <td>
                             <label for="deptIds"><span>{{rec.pDeptId}}</span></label>
@@ -64,12 +63,11 @@
                             <label for="deptIds"><span>{{rec.deptId}}</span></label>
                         </td>
                         <td>
-                            <label for="deptIds"><span>{{rec.deptId}}</span></label>
+                            <label for="deptIds"><span>{{rec.deptNm}}</span></label>
                         </td>
                     </tr>
                 </table>
-                <button ng-click="ok(rec)" >OK</button>
-                <button ng-click="cancel(rec)" >Cancel</button>
+                <button ng-click="cancel(rec)">Cancel</button>
             </div>
         </div>
     </div>

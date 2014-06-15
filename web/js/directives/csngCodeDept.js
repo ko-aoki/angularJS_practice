@@ -3,7 +3,7 @@ define(['directives'],function(directives) {
         return {
             restrict: 'A',
             scope: true,
-            templateUrl:'templates/page.html',
+            templateUrl:'templates/codeDept.html',
             replace:true,
             controller: 'CodeDeptCtrl'
         };

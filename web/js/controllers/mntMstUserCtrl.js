@@ -30,6 +30,19 @@ define(['jquery', 'controllers'],
                     $scope.modify = function modify(rec) {
                         window.location.href = "#/mntMstUserReg/" + rec.mstUserId;
                     };
+                    $scope.findDept = function findDept(kind) {
+                        $("#codeDept").removeClass("hide");
+                        $("#codeDept").addClass("show");
+                    };
+                    $scope.codeDeptOk = function codeDeptOk(rec) {
+                        $scope.deptId1 = rec.pDeptId;
+                        $scope.deptNm1 = rec.pDeptNm;
+                        $scope.deptId2 = rec.deptId;
+                        $scope.deptNm2 = rec.deptNm;
+                        $("#codeDept").removeClass("show");
+                        $("#codeDept").addClass("hide");
+                    };
+
                 }]
         )
     }

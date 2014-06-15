@@ -2,7 +2,7 @@ define(['controllers'],
     function(controllers) {
         controllers.controller('CodeDeptCtrl', ['$scope', '$http',
         function ($scope, $http) {
-            $scope.find = function() {
+            $scope.find = function () {
                 $http.post('webresources/codeDept/',
                     {
                         pDeptId: $scope.pDeptId,
@@ -15,13 +15,18 @@ define(['controllers'],
                         'Content-Type': 'application/json'
                     }}
                 ).success(function (data) {
-                    $scope.pageInfo = data.pageInfo;
-                    $scope.recs = data.recs;
-                });
+                        $scope.pageInfo = data.pageInfo;
+                        $scope.recs = data.recs;
+                    });
             };
-            $scope.pageJump = function(page) {
+            $scope.pageJump = function (page) {
                 $scope.pageInfo.requestPage = page;
                 $scope.find();
             };
-    }]);
+            $scope.cancel = function cancel() {
+                $("#codeDept").removeClass("show");
+                $("#codeDept").addClass("hide");
+            };
+        }]
+     )
 });

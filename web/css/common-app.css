@@ -46,4 +46,10 @@ body {
    background:#f0f7fc;
 }
 
+.hide {
+    display: none;
+}
+.show {
+    display: inline-block;
+}
 

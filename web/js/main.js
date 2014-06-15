@@ -31,7 +31,8 @@ require([
         'controllers/mntMstUserRegCtrl',
         'controllers/mntMstUserRegConfirmCtrl',
         'controllers/codeDeptCtrl',
-        'directives/csngPage'
+        'directives/csngPage',
+        'directives/csngCodeDept'
         // Any individual controller, service, directive or filter file
         // that you add will need to be pulled in here.
     ],

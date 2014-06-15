@@ -2,7 +2,8 @@
 <link href="css/mntMUser.css" rel="stylesheet"  type="text/css" />
 
 <h1 style="font-size:16px;">ユーザマスタメンテ</h1>
-<div id="app">
+<div id="app" style="z-index: 1">
+    <div csng-code-dept></div>
     <div id="message">
         <ul>
             <li ng-repeat="message in messages">
@@ -26,7 +27,7 @@
                         </th>
                         <td>
                             <input type="text" ng-model="deptId1"/>
-                            <input type="button" id="dept1Finder" value="部門検索"/>
+                            <input type="button" ng-click="findDept(1)" value="部門検索"/>
                             <span id="lblDeptNm1">{{$scope.deptNm1}}</span>
                         </td>
                     </tr>
@@ -35,6 +36,7 @@
                         </th>
                         <td>
                             <input type="text" ng-model="deptId2"  size="20" />
+                            <input type="button" ng-click="findDept(2)" value="部門検索"/>
                             <span id="lblDeptNm2">{{$scope.deptNm2}}</span>
                         </td>
                     </tr>
