@@ -2,13 +2,13 @@ define(['services'],
  function(services) {
     services.factory('dtoSrv', [
       function() {
-          var data;
+          var data = [];
           return {
-              getData: function () {
-                  return data;
+              getData: function (key) {
+                  return data[key];
               },
-              setData: function (value) {
-                  data = value;
+              setData: function (key, value) {
+                  data[key] = value;
               }
           };
       }]);

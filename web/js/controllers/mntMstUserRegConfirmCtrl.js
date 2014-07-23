@@ -2,7 +2,7 @@ define(['controllers', 'services/dtoSrv'],
     function(controllers) {
         controllers.controller('MntMstUserRegConfirmCtrl', ['$scope', '$http', '$location', '$routeParams', 'dtoSrv',
             function ($scope, $http, $location, $routeParams, dtoSrv) {
-                $scope.rec = dtoSrv.getData();
+                $scope.rec = dtoSrv.getData('MntMstUserRegConfirm').rec;
                 $scope.register = function () {
                     //            $location.path('#/mntMstUserRegConfirm/');
                     $http.put('webresources/mntMstUser/' + $scope.rec.mstUserId,
@@ -13,6 +13,9 @@ define(['controllers', 'services/dtoSrv'],
                     ).success(function (data) {
                             $scope.messages = data.messages;
                         });
+                };
+                $scope.back = function () {
+                    $location.path('mntMstUserReg');
                 };
             }]
         );

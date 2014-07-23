@@ -19,25 +19,25 @@
                         <th>ユーザ名
                         </th>
                         <td>
-                            <input type="text" ng-model="userNm"/>
+                            <input type="text" ng-model="cond.userNm"/>
                         </td>
                     </tr>
                     <tr>
                         <th>組織1
                         </th>
                         <td>
-                            <input type="text" ng-model="deptId1"/>
+                            <input type="text" ng-model="cond.deptId1"/>
                             <input type="button" ng-click="findDept(1)" value="部門検索"/>
-                            <span id="lblDeptNm1">{{$scope.deptNm1}}</span>
+                            <span id="lblDeptNm1">{{$scope.cond.deptNm1}}</span>
                         </td>
                     </tr>
                     <tr>
                         <th>組織2
                         </th>
                         <td>
-                            <input type="text" ng-model="deptId2"  size="20" />
+                            <input type="text" ng-model="cond.deptId2"  size="20" />
                             <input type="button" ng-click="findDept(2)" value="部門検索"/>
-                            <span id="lblDeptNm2">{{$scope.deptNm2}}</span>
+                            <span id="lblDeptNm2">{{$scope.cond.deptNm2}}</span>
                         </td>
                     </tr>
                     <tr>
@@ -45,13 +45,13 @@
                         </th>
                         <td>
                             <select id="roleId"
-                                    ng-model="roleId" ng-options="role.roleId as role.roleNm for role in roles">
+                                    ng-model="roleId" ng-options="role.roleId as role.roleNm for role in cond.roles">
                             </select>
                         </td>
                     </tr>
                 </table>
                 <button type="button" ng-click="find()" id="find">検索</button>
-                <button type="button"ng-click="register()"  name="register">新規登録</button>
+                <button type="button" ng-click="register()"  id="register">新規登録</button>
             </div>
         </div>
     </div>

@@ -6,7 +6,7 @@ require.config({
         'angularRoute': 'vendor/angular/angular-route',
         'angularMocks': 'vendor/angular-mocks/angular-mocks',
         'domReady': 'vendor/requirejs/domReady',
-        'text': 'vendor/requirejs-text/text'
+//        'text': 'vendor/requirejs-text/text'
 	},
 	shim: {
         'jquery' : {'exports' : 'jquery'},
@@ -43,6 +43,9 @@ require([
                 $routeProvider.when('/login', {templateUrl: 'partials/login.html', controller: 'LoginCtrl'});
                 $routeProvider.when('/menu/:roleId', {templateUrl: 'partials/menu.html', controller: 'MenuCtrl'});
                 $routeProvider.when('/mntMstUser', {templateUrl: 'partials/mntMstUser.html', controller: 'MntMstUserCtrl'});
+                $routeProvider.when('/mntMstUserReg', {templateUrl: 'partials/mntMstUserReg.html',
+                    controller: 'MntMstUserRegCtrl'
+                });
                 $routeProvider.when('/mntMstUserReg/:mstUserId', {templateUrl: 'partials/mntMstUserReg.html',
                     controller: 'MntMstUserRegCtrl'
                 });
