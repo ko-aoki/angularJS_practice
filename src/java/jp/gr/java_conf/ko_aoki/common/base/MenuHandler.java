@@ -7,16 +7,16 @@ import java.util.Set;
 import jp.gr.java_conf.ko_aoki.common.bean.MenuBean;
 
 /**
- * メニュー情報の操作を行うクラスです。
+ * メニュー情報の操作を行うクラスです.
  * @author kaoki
  *
  */
 public class MenuHandler {
 
     /**
-     * パス文字列のリストをMenuDTOのネストリストに変換します。
+     * パス文字列のリストをMenuBeanのネストリストに変換します。
      * @param paths
-     * @return MenuDTOのネストリスト
+     * @return MenuBeanのネストリスト
      */
     public static ArrayList<MenuBean> createMenu(ArrayList<String> paths) {
         ArrayList<MenuBean> rtn = new ArrayList<>();

@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package jp.gr.java_conf.ko_aoki.common.service;
 
 import java.util.ArrayList;
@@ -15,8 +9,8 @@ import jp.gr.java_conf.ko_aoki.common.entity.VwMenuPath;
 import jp.gr.java_conf.ko_aoki.common.repository.MstMenuRepository;
 
 /**
- *
- * @author admin
+ * メニュー画面のサービスクラス.
+ * @author ko-aoki
  */
 public class MenuServiceImpl implements MenuService{
 
@@ -30,8 +24,9 @@ public class MenuServiceImpl implements MenuService{
     }
 
     /**
-     * Retrieves representation of an instance of jp.gr.java_conf.ko_aoki.common.service.MenuServiceImpl
-     * @return an instance of java.lang.String
+     * メニュー画面の初期化処理を行います.
+     * @param roleId
+     * @return 
      */
     public List<MenuBean> init(String roleId) {
 

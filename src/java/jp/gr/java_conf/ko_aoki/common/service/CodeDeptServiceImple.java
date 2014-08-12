@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package jp.gr.java_conf.ko_aoki.common.service;
 
 import java.math.BigDecimal;
@@ -16,8 +11,8 @@ import jp.gr.java_conf.ko_aoki.common.form.CodeDeptForm;
 import jp.gr.java_conf.ko_aoki.common.repository.MstDeptRepository;
 
 /**
- *
- * @author admin
+ * 部門コード検索画面のサービスクラス.
+ * @author ko-aoki
  */
 public class CodeDeptServiceImple implements CodeDeptService{
 
@@ -30,6 +25,12 @@ public class CodeDeptServiceImple implements CodeDeptService{
     public CodeDeptServiceImple() {
     }
 
+    /**
+     * 部門コード検索画面情報を取得します.
+     * @param param
+     * @param curPage
+     * @return 
+     */
     public CodeDeptForm getDepts(Map<String, String> param, int curPage){
 
         BigDecimal cnt = mstDeptRep.countLevel1to2DeptList(param);

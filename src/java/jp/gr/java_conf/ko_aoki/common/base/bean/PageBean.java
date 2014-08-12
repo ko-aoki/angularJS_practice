@@ -3,7 +3,10 @@ package jp.gr.java_conf.ko_aoki.common.base.bean;
 import java.io.Serializable;
 import java.util.List;
 
-
+/**
+ * ページ情報クラス
+ * @author ko-aoki
+ */
 public class PageBean implements Serializable {
 
 	/** 現在ページ */

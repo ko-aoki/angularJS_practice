@@ -1,16 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package jp.gr.java_conf.ko_aoki.common.form;
 
 import java.util.List;
 
 /**
- *
- * @author admin
+ * formの基本クラス.
+ * @author ko-aoki
  */
 public class BaseForm {
     /** メッセージリスト */

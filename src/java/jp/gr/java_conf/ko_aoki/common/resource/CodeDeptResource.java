@@ -1,9 +1,3 @@
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package jp.gr.java_conf.ko_aoki.common.resource;
 
 import java.util.HashMap;
@@ -16,9 +10,8 @@ import jp.gr.java_conf.ko_aoki.common.form.CodeDeptForm;
 import jp.gr.java_conf.ko_aoki.common.service.CodeDeptService;
 
 /**
- * REST Web Service
- *
- * @author admin
+ * 部門コード検索画面のリソースクラス
+ * @author ko-aoki
  */
 @Path("codeDept")
 public class CodeDeptResource {
@@ -32,8 +25,12 @@ public class CodeDeptResource {
     public CodeDeptResource() {
     }
 
+    /**
+     * 部門コード検索画面を取得します.
+     * @param form
+     * @return 
+     */
     @POST
-//    @Path("{pDeptId: .*},{pDeptNm: .*},{deptId: .*},{deptNm: .*}")
     @Consumes("application/json")
     @Produces("application/json")
     public CodeDeptForm getDepts(CodeDeptForm form) {

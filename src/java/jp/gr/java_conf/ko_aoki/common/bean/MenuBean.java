@@ -1,8 +1,13 @@
+
 package jp.gr.java_conf.ko_aoki.common.bean;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * メニュー情報クラス
+ * @author ko-aoki
+ */
 public class MenuBean implements Serializable {
 
     /**

@@ -4,12 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 import jp.gr.java_conf.ko_aoki.common.base.bean.PageBean;
 
+/**
+ * 明細表示のページ情報を生成するクラスです.
+ * @author ko-aoki
+ */
 public class PageBuilder {
 
 	private PageBean page;
 
 	/**
-	 * 明細のページ情報を生成します。
+	 * 明細表示のページ情報を生成します。
 	 * @param curPage 現在ページ
 	 * @param numByPage ページ内件数
 	 * @param totalNum 全体件数

@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package jp.gr.java_conf.ko_aoki.common.repository;
 
 import java.math.BigDecimal;
@@ -17,14 +11,19 @@ import jp.gr.java_conf.ko_aoki.common.util.DateUtil;
 import org.apache.commons.lang.StringUtils;
 
 /**
- *
- * @author admin
+ * 部門entityを操作するrepositoryクラス.
+ * @author ko-aoki
  */
 public class MstDeptRepositoryImpl implements MstDeptRepository{
 
     @PersistenceContext(name = "common-app-javaee7PU")
     private EntityManager em;
 
+    /**
+     * 親部門、子部門の階層関係を取得します（カウントのみ）.
+     * @param params
+     * @return 
+     */
     @Override
     public BigDecimal countLevel1to2DeptList(Map<String, String> params) {
 
@@ -41,6 +40,13 @@ public class MstDeptRepositoryImpl implements MstDeptRepository{
 
     }
 
+    /**
+     * ページ検索での範囲内で、親部門、子部門の階層関係を取得します.
+     * @param params
+     * @param startNum
+     * @param endNum
+     * @return 
+     */
     @Override
     public List<CodeDeptBean> selectLevel1to2DeptList(Map<String, String> params, int startNum, int endNum) {
 

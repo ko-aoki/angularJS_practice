@@ -24,6 +24,7 @@ require([
         'angular',
         'app',
         'domReady',
+        //ファイルを追加したらここに追記
         'services/dtoSrv',
         'controllers/loginCtrl',
         'controllers/menuCtrl',
@@ -33,13 +34,12 @@ require([
         'controllers/codeDeptCtrl',
         'directives/csngPage',
         'directives/csngCodeDept'
-        // Any individual controller, service, directive or filter file
-        // that you add will need to be pulled in here.
     ],
     function (angular, app, domReady) {
         'use strict';
         app.config(['$routeProvider',
             function($routeProvider) {
+//ルートの定義。画面を追加したらここで追記
                 $routeProvider.when('/login', {templateUrl: 'partials/login.html', controller: 'LoginCtrl'});
                 $routeProvider.when('/menu/:roleId', {templateUrl: 'partials/menu.html', controller: 'MenuCtrl'});
                 $routeProvider.when('/mntMstUser', {templateUrl: 'partials/mntMstUser.html', controller: 'MntMstUserCtrl'});

@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package jp.gr.java_conf.ko_aoki.common.resource;
 
 import javax.inject.Inject;
@@ -15,9 +9,8 @@ import jp.gr.java_conf.ko_aoki.common.form.LoginForm;
 import jp.gr.java_conf.ko_aoki.common.service.LoginService;
 
 /**
- * REST Web Service
- *
- * @author admin
+ * ログイン画面のリソースクラス
+ * @author ko-aoki
  */
 @Path("login")
 public class LoginResource {
@@ -31,9 +24,12 @@ public class LoginResource {
     public LoginResource() {
     }
 
+
     /**
-     * Retrieves representation of an instance of jp.gr.java_conf.ko_aoki.common.service.LoginResource
-     * @return an instance of java.lang.String
+     * ログイン処理を行います.
+     * @param userId
+     * @param password
+     * @return 
      */
     @GET
     @Path("{userId},{password}")

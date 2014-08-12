@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package jp.gr.java_conf.ko_aoki.common.service;
 
 import java.util.Arrays;
@@ -14,8 +9,8 @@ import jp.gr.java_conf.ko_aoki.common.repository.MstRoleRepository;
 import jp.gr.java_conf.ko_aoki.common.repository.MstUserRepository;
 
 /**
- *
- * @author admin
+ * ユーザマスタメンテ画面のサービスクラス.
+ * @author ko-aoki
  */
 public class MntMstUserServiceImple implements MntMstUserService{
 
@@ -31,6 +26,14 @@ public class MntMstUserServiceImple implements MntMstUserService{
     public MntMstUserServiceImple() {
     }
 
+    /**
+     * ユーザ情報を取得します.
+     * @param userNm
+     * @param deptId1
+     * @param deptId2
+     * @param roleId
+     * @return 
+     */
     public MntMstUserForm getUsers(String userNm, String deptId1, String deptId2, String roleId) {        
 
         MntMstUserForm form = new MntMstUserForm();
@@ -41,6 +44,11 @@ public class MntMstUserServiceImple implements MntMstUserService{
         return form;
     }
 
+    /**
+     * ユーザ情報を取得します.
+     * @param mstUserId
+     * @return 
+     */
     public MntMstUserRegForm getUser(String mstUserId ) {
 
 
@@ -56,11 +64,23 @@ public class MntMstUserServiceImple implements MntMstUserService{
         return form;
     }
 
+    /**
+     * 更新確認処理を行います.
+     * @param form
+     * @return 
+     */
     public MntMstUserRegForm confirm(MntMstUserRegForm form) {
+        //TODO 突合が必要
         form.setResult("OK");
         return form;
     }
 
+    /**
+     * ユーザデータを更新します.
+     * @param mstUserId
+     * @param form
+     * @return 
+     */
     public MntMstUserRegForm updateUser(String mstUserId, MntMstUserRegForm form) {
         mstUserRep.update(form.getRec());
         form.setMessages(Arrays.asList("データを更新しました。"));

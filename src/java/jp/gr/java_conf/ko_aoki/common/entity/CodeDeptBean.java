@@ -4,6 +4,10 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+/**
+ * 部門コード検索結果のEntityクラス.
+ * @author ko-aoki
+ */
 @Entity
 public class CodeDeptBean implements Serializable {
 

@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package jp.gr.java_conf.ko_aoki.common.resource;
 
 import java.util.List;
@@ -16,9 +10,8 @@ import jp.gr.java_conf.ko_aoki.common.bean.MenuBean;
 import jp.gr.java_conf.ko_aoki.common.service.MenuService;
 
 /**
- * REST Web Service
- *
- * @author admin
+ * メニュー画面のリソースクラス
+ * @author ko-aoki
  */
 @Path("menu")
 public class MenuResource {
@@ -33,8 +26,9 @@ public class MenuResource {
     }
 
     /**
-     * Retrieves representation of an instance of jp.gr.java_conf.ko_aoki.common.service.MenuResource
-     * @return an instance of java.lang.String
+     * メニュー画面の初期表示処理.
+     * @param roleId
+     * @return 
      */
     @GET
     @Path("{roleId}")

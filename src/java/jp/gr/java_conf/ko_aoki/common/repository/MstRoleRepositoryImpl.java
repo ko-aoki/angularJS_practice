@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package jp.gr.java_conf.ko_aoki.common.repository;
 
 import java.util.List;
@@ -18,22 +12,18 @@ import jp.gr.java_conf.ko_aoki.common.entity.MstRole;
 import jp.gr.java_conf.ko_aoki.common.entity.VwMenuPath;
 
 /**
- *
- * @author admin
+ * ロールentityを操作するrepositoryクラス.
+ * @author ko-aoki
  */
 public class MstRoleRepositoryImpl implements MstRoleRepository{
 
     @PersistenceContext(name = "common-app-javaee7PU")
     private EntityManager em;
 
-    @Override
-    public List<VwMenuPath> findByRoleId(String roleId) {
-       Query query = em.createNamedQuery("VwMenuPath.findByRoleId", VwMenuPath.class);
-       query.setParameter("roleId", roleId);
-       List<VwMenuPath> recs = query.getResultList();
-       return recs;
-    }
-
+    /**
+     * すべてのロールentityを取得します。
+     * @return 
+     */
     public List<MstRole> findAll() {
         
         CriteriaBuilder cb = em.getCriteriaBuilder();

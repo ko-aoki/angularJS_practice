@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package jp.gr.java_conf.ko_aoki.common.resource;
 
 import java.util.Arrays;
@@ -19,9 +14,8 @@ import jp.gr.java_conf.ko_aoki.common.form.MntMstUserRegForm;
 import jp.gr.java_conf.ko_aoki.common.service.MntMstUserService;
 
 /**
- * REST Web Service
- *
- * @author admin
+ * ユーザマスタメンテ画面のリソースクラス
+ * @author ko-aoki
  */
 @Path("mntMstUser")
 public class MntMstUserResource {
@@ -35,6 +29,14 @@ public class MntMstUserResource {
     public MntMstUserResource() {
     }
 
+    /**
+     * ユーザの検索処理を行います.
+     * @param userNm
+     * @param deptId1
+     * @param deptId2
+     * @param roleId
+     * @return 
+     */
     @GET
     @Path("{userNm: .*},{deptId1: .*},{deptId2: .*},{roleId: .*}")
     @Produces("application/json")
@@ -47,6 +49,11 @@ public class MntMstUserResource {
         return form;
     }
 
+    /**
+     * ユーザの検索処理を行います.
+     * @param mstUserId
+     * @return 
+     */
     @GET
     @Path("{mstUserId: .*}")
     @Produces("application/json")
@@ -57,6 +64,11 @@ public class MntMstUserResource {
         return form;
     }
 
+    /**
+     * 更新確認処理を行います.
+     * @param form
+     * @return 
+     */
     @POST
     @Consumes("application/json")
     @Produces("application/json")
@@ -65,6 +77,12 @@ public class MntMstUserResource {
         return rtnForm;
     }
 
+    /**
+     * 更新処理を行います.
+     * @param mstUserId
+     * @param form
+     * @return 
+     */
     @PUT
     @Path("{mstUserId: .*}")
     @Consumes("application/json")

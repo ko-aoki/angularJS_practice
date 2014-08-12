@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package jp.gr.java_conf.ko_aoki.common.repository;
 
 import java.math.BigDecimal;
@@ -11,8 +6,8 @@ import java.util.Map;
 import jp.gr.java_conf.ko_aoki.common.entity.CodeDeptBean;
 
 /**
- *
- * @author admin
+ * ログイン画面のformクラス.
+ * @author ko-aoki
  */
 public interface MstDeptRepository {
 
