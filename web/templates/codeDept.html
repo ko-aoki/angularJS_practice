@@ -36,7 +36,7 @@
                     </table>
                     <button type="button" ng-click="find()" id="find">検索</button>
 
-                    <div csng-page></div>
+                    <div csng-page page-info="pageInfo" page-jump="pageJump"></div>
 
                 </form>
                 <table border="1">
@@ -51,7 +51,7 @@
                     </thead>
                     <tr ng-repeat="rec in recs">
                         <td>
-                            <button ng-click="codeDeptOk(rec)">OK</button>
+                            <button ng-click="ok(rec)">OK</button>
                         </td>
                         <td>
                             <label for="deptIds"><span>{{rec.pDeptId}}</span></label>

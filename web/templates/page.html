@@ -2,17 +2,17 @@
     <span>{{pageInfo.startNum}} - {{pageInfo.endNum}} / {{pageInfo.totalNum}}</span>
     <br>
 	<span ng-show="pageInfo.curPage > 1">
-		<a href="javascript:void(0)" ng-click="pageJump(1)">&lt;&lt;</a>
-		<a href="javascript:void(0)" ng-click="pageJump(pageInfo.curPage - 1)">&lt;</a>
+		<a href ng-click="pageJump(1)">&lt;&lt;</a>
+		<a href ng-click="pageJump(pageInfo.curPage - 1)">&lt;</a>
 	</span>
 	<span ng-repeat="dispPage in pageInfo.dispPageList">
-    	<a ng-if="dispPage !== pageInfo.curPage" href="javascript:void(0)" ng-click="pageJump(dispPage)">{{dispPage}}</a>
+    	<a ng-if="dispPage !== pageInfo.curPage" href ng-click="pageJump(dispPage)">{{dispPage}}</a>
     	<span ng-if="dispPage === pageInfo.curPage">{{dispPage}}</span>
 	</span>
 		<span ng-show="pageInfo.curPage < pageInfo.totalPage">
-    		<a href="javascript:void(0)" ng-click="pageJump(pageInfo.curPage + 1)">&gt;</a>
-			<a href="javascript:void(0)"  ng-click="pageJump(pageInfo.totalPage)">&gt;&gt;</a>
+    		<a href ng-click="pageJump(pageInfo.curPage + 1)">&gt;</a>
+			<a href  ng-click="pageJump(pageInfo.totalPage)">&gt;&gt;</a>
 		</span>
-    <input type="text" ng-model="pageInfo.requestPage" size="2"/>ページ
+    <input type="text" ng-model="pageInfo.requestPage" />ページ
     <button type="button"  ng-click="pageJump(pageInfo.requestPage)">ページ指定</button>
 </div>

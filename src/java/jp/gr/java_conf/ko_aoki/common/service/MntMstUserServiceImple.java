@@ -20,9 +20,6 @@ public class MntMstUserServiceImple implements MntMstUserService{
     @Inject
     private MstRoleRepository mstRoleRep;
 
-    /**
-     * Creates a new instance of MenuService
-     */
     public MntMstUserServiceImple() {
     }
 

@@ -1,4 +1,4 @@
-define(['controllers'],
+define(['controllers' ],
     function(controllers) {
         controllers.controller('CodeDeptCtrl', ['$scope', '$http',
         function ($scope, $http) {
@@ -22,6 +22,9 @@ define(['controllers'],
             $scope.pageJump = function (page) {
                 $scope.pageInfo.requestPage = page;
                 $scope.find();
+            };
+            $scope.ok = function ok(rec) {
+                $scope.$emit('CodeDeptOK', rec);
             };
             $scope.cancel = function cancel() {
                 $("#codeDept").removeClass("show");

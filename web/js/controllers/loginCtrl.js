@@ -1,15 +1,22 @@
-define(['controllers'],
+define(['controllers','angularResource'],
     function(controllers) {
-        controllers.controller('LoginCtrl', ['$scope', '$http', '$location',
-        function ($scope, $http, $location) {
-        $scope.login = function login() {
-            $http.get('webresources/login/' + $scope.loginUserId + ',' + $scope.password).success(function (data) {
-                if (data.result === "error") {
-                    $scope.messages = data.messages;
-                } else {
-                    $location.path("menu/" + data.roleId) ;
-                }
-            });
-        };
-    }]);
-});
+        controllers.controller('LoginCtrl', ['$scope', '$http', '$location', '$resource',
+            function ($scope, $http, $location, $resource) {
+                $scope.login = function login() {
+                    var login = $resource('webresources/login/:loginUserId,:password',
+                                    {'loginUserId': '@loginUserId'},
+                                    {'password': '@password'}
+                                );
+                    login.get(
+                        {'loginUserId': $scope.loginUserId, 'password': $scope.password},
+                        function (data) {
+                            if (data.result === "error") {
+                                $scope.messages = data.messages;
+                            } else {
+                                $location.path("menu/" + data.roleId);
+                            }
+                        }
+                    );
+                };
+            }]);
+    });
