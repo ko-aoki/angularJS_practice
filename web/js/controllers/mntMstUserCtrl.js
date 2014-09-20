@@ -1,16 +1,19 @@
 define(['jquery', 'controllers', 'angularResource', 'services/dtoSrv'],
     function($, controllers) {
         controllers.controller('MntMstUserCtrl', ['$scope', '$http', '$location', '$resource', 'dtoSrv',
-                function ($scope, $http, $location, $resource, dtoSrv) {
+                function ($scope,
+                          $http, $location, $resource, dtoSrv) {
 
                     $scope.recs = [];
                     $scope.cond = {};
 
                     var resource = $resource('webresources/mntMstUser/:userNm,:deptId1,:deptId2,:roleId',
-                        {'userNm': '@userNm'},
-                        {'deptId1': '@deptId1'},
-                        {'deptId2': '@deptId2'},
-                        {'roleId': '@roleId'}
+                        {
+                            'userNm': '@userNm',
+                            'deptId1': '@deptId1',
+                            'deptId2': '@deptId2',
+                            'roleId': '@roleId'
+                        }
                     );
                     resource.get({}, function(data) {
                         $scope.cond.roles = data.roles;
