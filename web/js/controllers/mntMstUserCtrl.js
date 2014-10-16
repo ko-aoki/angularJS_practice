@@ -1,23 +1,16 @@
-define(['jquery', 'controllers', 'angularResource', 'services/dtoSrv'],
+define(['jquery', 'controllers', 'angularResource', 'services/dtoSrv', 'services/mntMstUserResource'],
     function($, controllers) {
-        controllers.controller('MntMstUserCtrl', ['$scope', '$http', '$location', '$resource', 'dtoSrv',
-                function ($scope,
-                          $http, $location, $resource, dtoSrv) {
+        controllers.controller('MntMstUserCtrl', ['$scope',  '$location', 'dtoSrv', 'mntMstUserResource',
+                function ($scope, $location, dtoSrv, mntMstUserResource) {
 
                     $scope.recs = [];
                     $scope.cond = {};
 
-                    var resource = $resource('webresources/mntMstUser/:userNm,:deptId1,:deptId2,:roleId',
-                        {
-                            'userNm': '@userNm',
-                            'deptId1': '@deptId1',
-                            'deptId2': '@deptId2',
-                            'roleId': '@roleId'
+                    mntMstUserResource.getUsers(
+                        {}, function(data) {
+                            $scope.cond.roles = data.roles;
                         }
                     );
-                    resource.get({}, function(data) {
-                        $scope.cond.roles = data.roles;
-                    });
 
                     //戻る
                     if (dtoSrv.getData('MntMstUser') != null) {
@@ -26,7 +19,7 @@ define(['jquery', 'controllers', 'angularResource', 'services/dtoSrv'],
                     }
                     //検索
                     $scope.find = function find() {
-                        resource.get(
+                        mntMstUserResource.getUsers(
                             {
                                 'userNm': $scope.cond.userNm,
                                 'deptId1': $scope.cond.deptId1,

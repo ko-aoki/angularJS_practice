@@ -1,6 +1,7 @@
 package jp.gr.java_conf.ko_aoki.common.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -54,12 +57,13 @@ public class MstUser implements Serializable {
     private String password;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 8)
     @Column(name = "START_DATE")
-    private String startDate;
-    @Size(max = 8)
+    @Temporal(TemporalType.TIMESTAMP)
+    
+    private Date startDate;
     @Column(name = "END_DATE")
-    private String endDate;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date endDate;
     @Column(name = "VERSION_NO")
     private Long versionNo;
     @JoinColumn(name = "ROLE_ID", referencedColumnName = "ROLE_ID")
@@ -76,7 +80,7 @@ public class MstUser implements Serializable {
         this.mstUserId = mstUserId;
     }
 
-    public MstUser(Long mstUserId, String userId, String startDate) {
+    public MstUser(Long mstUserId, String userId, Date startDate) {
         this.mstUserId = mstUserId;
         this.userId = userId;
         this.startDate = startDate;
@@ -122,19 +126,19 @@ public class MstUser implements Serializable {
         this.password = password;
     }
 
-    public String getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(String startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
-    public String getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(String endDate) {
+    public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
 

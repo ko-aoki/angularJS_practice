@@ -1,12 +1,16 @@
-define(['controllers', 'jquery', 'jquery.treeview'],
+define(['controllers', 'jquery', 'jquery.treeview', 'services/menuResource'],
     function(controllers, $) {
-        controllers.controller('MenuCtrl', ['$scope', '$http', '$routeParams',
-            function ($scope, $http, $routeParams) {
-                $http.get('webresources/menu/' + $routeParams.roleId).success(function (data) {
-                    var $menu = $("#menu");
-                    writeMenuList(data, $menu);
-                    $menu.treeview();
-                });
+        controllers.controller('MenuCtrl', ['$scope', 'menuResource',
+            function ($scope, menuResource) {
+//                $http.get('webresources/menu/' + $routeParams.roleId).success(function (data) {
+                menuResource.getMenu(
+                    {},
+                    function (data) {
+                        var $menu = $("#menu");
+                        writeMenuList(data, $menu);
+                        $menu.treeview();
+                    }
+                );
                 function writeMenuList(data, elm) {
                     for (var i = 0; i < data.length; i++) {
                         if (data[i].childMenu != undefined && data[i].childMenu.length > 0) {

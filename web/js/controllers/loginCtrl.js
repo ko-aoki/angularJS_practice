@@ -1,15 +1,9 @@
-define(['controllers','angularResource'],
+define(['controllers','angularResource', 'services/loginResource'],
     function(controllers) {
-        controllers.controller('LoginCtrl', ['$scope', '$http', '$location', '$resource',
-            function ($scope, $http, $location, $resource) {
+        controllers.controller('LoginCtrl', ['$scope', '$location', 'loginResource',
+            function ($scope, $location, loginResource) {
                 $scope.login = function login() {
-                    var login = $resource('webresources/login/:loginUserId,:password',
-                                    {
-                                        'loginUserId': '@loginUserId',
-                                        'password': '@password'
-                                    }
-                                );
-                    login.get(
+                    loginResource.login(
                         {'loginUserId': $scope.loginUserId, 'password': $scope.password},
                         function (data) {
                             if (data.result === "error") {

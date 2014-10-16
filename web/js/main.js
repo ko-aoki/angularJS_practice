@@ -2,6 +2,7 @@ require.config({
 	paths: {
         'jquery': 'vendor/jquery/jquery',
         'jquery.treeview': 'vendor/jquery/jquery.treeview',
+        'moment': 'vendor/momentjs/moment',
         'angular': 'vendor/angular/angular',
         'angularRoute': 'vendor/angular/angular-route',
         'angularResource': 'vendor/angular/angular-resource',
@@ -12,6 +13,7 @@ require.config({
 	shim: {
         'jquery' : {'exports' : 'jquery'},
         'jquery.treeview' :['jquery'],
+        'moment' : {'exports' : 'moment'},
         'angular' : {'exports' : 'angular'},
 		'angularRoute': ['angular'],
         'angularResource': { deps:['angular'] },
@@ -24,10 +26,15 @@ require.config({
 
 require([
         'angular',
+        'moment',
         'app',
         'domReady',
         //ファイルを追加したらここに追記
         'services/dtoSrv',
+        'services/loginResource',
+        'services/menuResource',
+        'services/mntMstUserResource',
+        'services/codeDeptResource',
         'controllers/loginCtrl',
         'controllers/menuCtrl',
         'controllers/mntMstUserCtrl',
@@ -35,9 +42,10 @@ require([
         'controllers/mntMstUserRegConfirmCtrl',
         'controllers/codeDeptCtrl',
         'directives/csngPage',
-        'directives/csngCodeDept'
+        'directives/csngCodeDept',
+        'directives/csngDate'
     ],
-    function (angular, app, domReady) {
+    function (angular, moment, app, domReady) {
         'use strict';
         app.config(['$routeProvider',
             function($routeProvider) {

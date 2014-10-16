@@ -87,7 +87,7 @@ public class MntMstUserResource {
     @Path("{mstUserId: .*}")
     @Consumes("application/json")
     @Produces("application/json")
-    public MntMstUserRegForm putUser(
+    public MntMstUserRegForm update(
             @PathParam("mstUserId") String mstUserId,
             MntMstUserRegForm form
     ) {

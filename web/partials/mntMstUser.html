@@ -92,10 +92,10 @@
                         <span>{{rec.roleId.roleNm}}</span>
                     </td>
                     <td class="recStartDate">
-                        <span>{{rec.startDate}}</span>
+                        <span>{{rec.startDate | date: 'yyyy/MM/dd'}}</span>
                     </td>
                     <td class="recEndDate">
-                        <span>{{rec.endDate}}</span>
+                        <span>{{rec.endDate | date: 'yyyy/MM/dd'}}</span>
                     </td>
                     <td class="recCmd">
                         <button class="modify"  ng-click="modify(rec)" >変更</button>

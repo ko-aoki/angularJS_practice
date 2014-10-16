@@ -1,9 +1,9 @@
-define(['controllers' ],
+define(['controllers', 'services/codeDeptResource' ],
     function(controllers) {
-        controllers.controller('CodeDeptCtrl', ['$scope', '$http',
-        function ($scope, $http) {
+        controllers.controller('CodeDeptCtrl', ['$scope', 'codeDeptResource',
+        function ($scope, codeDeptResource) {
             $scope.find = function () {
-                $http.post('webresources/codeDept/',
+                codeDeptResource.find(
                     {
                         pDeptId: $scope.pDeptId,
                         pDeptNm: $scope.pDeptNm,
@@ -11,13 +11,11 @@ define(['controllers' ],
                         deptNm: $scope.deptNm,
                         pageInfo: $scope.pageInfo
                     },
-                    {headers: {
-                        'Content-Type': 'application/json'
-                    }}
-                ).success(function (data) {
+                    function (data) {
                         $scope.pageInfo = data.pageInfo;
                         $scope.recs = data.recs;
-                    });
+                    }
+                );
             };
             $scope.pageJump = function (page) {
                 $scope.pageInfo.requestPage = page;
