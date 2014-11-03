@@ -1,0 +1,74 @@
+<div id="codeDept" class="hide"
+     style="z-index:5; position: absolute; width: 100%; height: 100%;  opacity: 0.7; background-color: gray">
+    <div id="finderDiv" style="position: absolute; top:20%;left: 20%;background-color: white;width:25%;">
+        <div id="header">
+            <div id="condition" class="content-wrap">
+                <form>
+                    <table border="1">
+                        <tr>
+                            <th>組織1コード
+                            </th>
+                            <td>
+                                <input type="text" ng-model="pDeptId"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>組織1名称
+                            </th>
+                            <td>
+                                <input type="text" ng-model="pDeptNm"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>組織2コード
+                            </th>
+                            <td>
+                                <input type="text" ng-model="deptId"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>組織2名称
+                            </th>
+                            <td>
+                                <input type="text" ng-model="deptNm"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <button type="button" ng-click="find()" id="find">検索</button>
+
+                    <div csng-page page-info="pageInfo" page-jump="pageJump"></div>
+
+                </form>
+                <table border="1">
+                    <thead>
+                    <tr>
+                        <th>選択</th>
+                        <th>親部門ID</th>
+                        <th>親部門名</th>
+                        <th>部門ID</th>
+                        <th>部門名</th>
+                    </tr>
+                    </thead>
+                    <tr ng-repeat="rec in recs">
+                        <td>
+                            <button ng-click="ok(rec)">OK</button>
+                        </td>
+                        <td>
+                            <label for="deptIds"><span>{{rec.pDeptId}}</span></label>
+                        </td>
+                        <td>
+                            <label for="deptIds"><span>{{rec.pDeptNm}}</span></label>
+                        </td>
+                        <td>
+                            <label for="deptIds"><span>{{rec.deptId}}</span></label>
+                        </td>
+                        <td>
+                            <label for="deptIds"><span>{{rec.deptNm}}</span></label>
+                        </td>
+                    </tr>
+                </table>
+                <button ng-click="cancel(rec)">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

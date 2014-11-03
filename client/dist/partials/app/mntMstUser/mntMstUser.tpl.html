@@ -1,0 +1,108 @@
+<link href="css/common-app.css" rel="stylesheet"  type="text/css" />
+<link href="css/mntMUser.css" rel="stylesheet"  type="text/css" />
+
+<h1 style="font-size:16px;">ユーザマスタメンテ</h1>
+<div id="app" style="z-index: 1">
+    <div csng-code-dept></div>
+    <div id="message">
+        <ul>
+            <li ng-repeat="message in messages">
+                <p>{{message}}</p>
+            </li>
+        </ul>
+    </div>
+    <div id="header">
+        <div id="condition" class="content-wrap">
+            <div id="finderDiv">
+                <table border="1">
+                    <tr>
+                        <th>ユーザ名
+                        </th>
+                        <td>
+                            <input type="text" ng-model="cond.userNm"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>組織1
+                        </th>
+                        <td>
+                            <input type="text" ng-model="cond.deptId1"/>
+                            <input type="button" ng-click="findDept(1)" value="部門検索"/>
+                            <span id="lblDeptNm1">{{$scope.cond.deptNm1}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>組織2
+                        </th>
+                        <td>
+                            <input type="text" ng-model="cond.deptId2"  size="20" />
+                            <input type="button" ng-click="findDept(2)" value="部門検索"/>
+                            <span id="lblDeptNm2">{{$scope.cond.deptNm2}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>ロール
+                        </th>
+                        <td>
+                            <select id="roleId"
+                                    ng-model="cond.roleId" ng-options="role.roleId as role.roleNm for role in cond.roles">
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <button type="button" ng-click="find()" id="find">検索</button>
+                <button type="button" ng-click="register()"  id="register">新規登録</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="headerDiv">
+        <table id="headerTable" border="1" style="margin-top:20px;">
+            <thead>
+                <tr>
+                    <th class="recUserId">ユーザID</th>
+                    <th class="recUserNm">ユーザ名</th>
+                    <th class="recOrg1">組織1</th>
+                    <th class="recOrg2">組織2</th>
+                    <th class="recRole">ロール</th>
+                    <th class="recStartDate">開始日付</th>
+                    <th class="recEndDate">終了日付</th>
+                    <th class="recCmd"></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div  id="recordsDiv">
+        <table id="recordsTable" border="1" >
+            <tbody >
+                <tr ng-repeat="rec in recs">
+                    <td class="recUserId">
+                        <span>{{rec.userId}}</span>
+                    </td>
+                    <td class="recUserNmM">
+                        <span>{{rec.usernmSei}}{{rec.usernmMei}}</span>
+                    </td>
+                    <td class="recOrg1">
+                        <span>{{rec.mstDeptId.PDeptNm}}</span>
+                    </td>
+                    <td class="recOrg2">
+                        <span>{{rec.mstDeptId.deptNm}}</span>
+                    </td>
+                    <td class="recRole">
+                        <span>{{rec.roleId.roleNm}}</span>
+                    </td>
+                    <td class="recStartDate">
+                        <span>{{rec.startDate | date: 'yyyy/MM/dd'}}</span>
+                    </td>
+                    <td class="recEndDate">
+                        <span>{{rec.endDate | date: 'yyyy/MM/dd'}}</span>
+                    </td>
+                    <td class="recCmd">
+                        <button class="modify"  ng-click="modify(rec)" >変更</button>
+                        <button class="delete"  ng-click="delete(rec)" >削除</button>
+                    </td>
+                </tr>			
+            </tbody>
+        </table>
+    </div>
+</div>

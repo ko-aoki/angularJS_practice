@@ -1,0 +1,71 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>ユーザマスタメンテ</title>
+    <link href="css/common-app.css" rel="stylesheet" type="text/css"/>
+    <link href="css/mntMUser.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<h1 style="font-size:16px;">ユーザマスタメンテ</h1>
+
+<div id="app">
+    <div id="entryDiv">
+        <form>
+            <input type="hidden" ng-model="rec.mstUserId"/>
+            <table id="headerTable" border="1" style="margin-top:20px;">
+                <tr>
+                    <td class="caption">ユーザID</td>
+                    <td class="userId">
+                        <input type="text" ng-model="rec.userId" readonly="true"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="caption">ユーザ名(姓)</td>
+                    <td class="userNmSei">
+                        <input type="text" ng-model="rec.usernmSei"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="caption">ユーザ名(名)</td>
+                    <td class="userNmMei">
+                        <input type="text" ng-model="rec.usernmMei"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="caption">所属</td>
+                    <td class="deptId">
+                        <input type="text" ng-model="rec.mstDeptId.deptId" size="10"/>
+                        <input type="button" id="deptFinder" value="部門検索"/>
+                        <span id="lblDeptNm">{{rec.mstDeptId.deptNm}}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="caption">ロール</td>
+                    <td>
+                        <select id="roleId"
+                                ng-model="rec.roleId.roleId" ng-options="role.roleId as role.roleNm for role in roles">
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="caption">開始日付</td>
+                    <td class="startDate">
+                        <input type="text" ng-model="rec.startDate" csng-date readonly="true"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="caption">終了日付</td>
+                    <td class="endDate">
+                        <input type="text" ng-model="rec.endDate" csng-date />
+                    </td>
+                </tr>
+            </table>
+            <button ng-click="confirm()">確認</button>
+            <button ng-click="back()">戻る</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
